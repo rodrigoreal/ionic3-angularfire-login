@@ -1,10 +1,10 @@
-import {Page, NavController, Modal} from "ionic-angular";
+import {NavController, Modal} from "ionic-angular";
 import {AngularFire, FirebaseAuth, FirebaseListObservable} from "angularfire2";
 import {Observable} from "rxjs/Observable";
-import {OnInit, Inject} from "@angular/core";
+import {OnInit, Inject, Component} from "@angular/core";
 import {AuthPage} from "../auth/home/home";
 
-@Page({
+@Component({
   templateUrl: "build/pages/home/home.html"
 })
 

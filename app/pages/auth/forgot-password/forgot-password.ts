@@ -1,9 +1,9 @@
-import {Page, NavController, Loading} from "ionic-angular";
+import {NavController, Loading} from "ionic-angular";
 import {FirebaseAuth, FirebaseRef, AuthProviders, AuthMethods } from "angularfire2";
-import {OnInit, Inject} from "@angular/core";
+import {OnInit, Inject, Component} from "@angular/core";
 import {LoginEmailPage} from "../login-email/login-email";
 
-@Page({
+@Component({
   templateUrl: "build/pages/auth/forgot-password/forgot-password.html"
 })
 
