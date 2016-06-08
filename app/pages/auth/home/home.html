@@ -1,0 +1,28 @@
+<ion-content class="auth-home">
+  <div class="logo">
+    <div class="logo-icon">
+      LOGO
+    </div>
+  </div>
+
+  <button block class="facebook-btn" (click)="registerUserWithFacebook()">
+    <ion-icon name="logo-facebook"></ion-icon>
+    Entrar com Facebook
+  </button>
+  <button block class="google-btn" (click)="registerUserWithGoogle()">
+    <ion-icon name="logo-google" ></ion-icon>
+    Entrar com Google
+  </button>
+
+  <button light outline class="sign-up-btn" (click)="openSignUpPage()">Cadastrar</button>
+  <button light outline class="log-in-btn" (click)="openLoginPage()">Entrar</button>
+
+  <div padding class="error" *ngIf="error">
+    <p>{{error}}</p>
+  </div>
+
+  <div class="terms-of-use-txt">
+    Ao se cadastrar neste aplicativo você concorda com os
+    <b (click)="openTermsOfService()">Termos de Uso</b>
+  </div>
+</ion-content>
