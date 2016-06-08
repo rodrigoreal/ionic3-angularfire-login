@@ -1,23 +1,19 @@
-import {App, IonicApp, Platform} from "ionic-angular";
+import {App, Platform, ionicBootstrap} from "ionic-angular";
 import {StatusBar} from "ionic-native";
 import {HomePage} from "./pages/home/home";
+import {Component} from "@angular/core";
 
 import {FIREBASE_PROVIDERS, defaultFirebase} from "angularfire2";
 
-@App({
+@Component({
   templateUrl: "build/app.html",
-  providers: [
-    FIREBASE_PROVIDERS,
-    defaultFirebase("https://ionic2-angularfire-login.firebaseio.com/")
-  ],
-  config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 
 class MyApp {
   rootPage: any = HomePage;
   pages: Array<{title: string, component: any}>;
 
-  constructor(private app: IonicApp, private platform: Platform) {
+  constructor(private app: App, private platform: Platform) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -42,3 +38,7 @@ class MyApp {
     nav.setRoot(page.component);
   }
 }
+
+ionicBootstrap(MyApp, [FIREBASE_PROVIDERS, defaultFirebase("https://ionic2-angularfire-login.firebaseio.com/")], {
+
+});

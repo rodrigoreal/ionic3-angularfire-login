@@ -1,7 +1,6 @@
-import {Page} from "ionic-angular";
-import {OnInit} from "@angular/core";
+import {OnInit, Component} from "@angular/core";
 
-@Page({
+@Component({
   templateUrl: "build/pages/terms-of-service/terms-of-service.html"
 })
 
