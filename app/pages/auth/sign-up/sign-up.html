@@ -1,27 +1,29 @@
 <ion-navbar *navbar>
   <ion-title>
-    Cadastrar
+    Sign Up with Email
   </ion-title>
 </ion-navbar>
 
 <ion-content class="sign-up">
   <div padding class="log-in-txt" (click)="openLoginPage()">
-    Entrar
+    Log In
   </div>
 
   <form #signUpCredentials="ngForm">
     <ion-list>
       <ion-item>
-        <ion-input type="text" placeholder="E-mail" ngControl="email"></ion-input>
+        <ion-input type="text" placeholder="Email" ngControl="email"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input type="password" placeholder="Senha" ngControl="password"></ion-input>
+        <ion-input type="password" placeholder="Password" ngControl="password"></ion-input>
       </ion-item>
     </ion-list>
 
     <button block [disabled]="!signUpCredentials.value.email || !signUpCredentials.value.password"
-      class="sign-up-btn" (click)="registerUser(signUpCredentials.value)">Cadastrar
+      class="sign-up-btn" (click)="registerUser(signUpCredentials.value)"
+      >
+      Sign Up
     </button>
 
     <div padding class="error" *ngIf="error">
