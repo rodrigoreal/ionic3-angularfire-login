@@ -18,6 +18,7 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^1.1.6",
     "del": "2.2.0",
     "gulp": "3.9.1",
     "gulp-watch": "4.3.5",
@@ -45,5 +46,10 @@
     }
   ],
   "name": "ionic2-angularfire-login",
-  "description": "Integrating Firebase with AngularFire2 into Angular2 & Ionic2"
+  "description": "Integrating Firebase with AngularFire2 into Angular2 & Ionic2",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
