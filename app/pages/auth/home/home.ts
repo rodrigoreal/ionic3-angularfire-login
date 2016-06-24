@@ -13,7 +13,6 @@ export class AuthPage {
   error: any;
 
   constructor(private auth: FirebaseAuth,
-    @Inject(FirebaseRef) public ref: Firebase,
     private navCtrl: NavController) {
   }
 

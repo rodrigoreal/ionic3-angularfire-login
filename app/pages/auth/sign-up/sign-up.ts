@@ -11,7 +11,6 @@ export class SignUpPage {
   error: any;
 
   constructor(private auth: FirebaseAuth,
-    @Inject(FirebaseRef) public ref: Firebase,
     private navCtrl: NavController) {
   }
 
@@ -59,16 +58,6 @@ export class SignUpPage {
       method: AuthMethods.Password
     }).then((authData) => {
       console.log(authData);
-      let auth: FirebaseAuthDataPassword = authData.password;
-      return this.ref.child("users")
-        .child(authData.uid)
-        .set({
-          "provider": authData.provider,
-          "avatar": auth.profileImageURL,
-          "displayName": auth.email,
-          "authData" : authData
-        });
-    }).then((value) => {
       loading.dismiss();
       this.navCtrl.popToRoot();
     }).catch((error) => {

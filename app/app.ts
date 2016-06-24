@@ -38,6 +38,10 @@ class MyApp {
   }
 }
 
-ionicBootstrap(MyApp, [FIREBASE_PROVIDERS, defaultFirebase("https://ionic2-angularfire-login.firebaseio.com/")], {
-
+ionicBootstrap(MyApp, [FIREBASE_PROVIDERS, defaultFirebase({
+    apiKey: "AIzaSyDcbsUEReGm_dlijVXC1sMCcqKpCsXt0nQ",
+    authDomain: "ionic2-angularfire-login-14ea3.firebaseapp.com",
+    databaseURL: "https://ionic2-angularfire-login-14ea3.firebaseio.com",
+    storageBucket: "ionic2-angularfire-login-14ea3.appspot.com",
+  })], {
 });

@@ -22,16 +22,16 @@ export class HomePage {
 
     this.auth.subscribe(data => {
       if (data) {
-        if (data.facebook) {
-          this.authInfo = data.facebook;
-          this.authInfo.displayName = data.facebook.displayName;
-        } else if (data.google) {
-          this.authInfo = data.google;
-          this.authInfo.displayName = data.google.displayName;
-        } else {
-          this.authInfo = data.password;
-          this.authInfo.displayName = data.password.email;
-        }
+        // if (data.facebook) {
+        //   this.authInfo = data.facebook;
+        //   this.authInfo.displayName = data.facebook.displayName;
+        // } else if (data.google) {
+        //   this.authInfo = data.google;
+        //   this.authInfo.displayName = data.google.displayName;
+        // } else {
+        //   this.authInfo = data.password;
+        //   this.authInfo.displayName = data.password.email;
+        // }
       } else {
         this.authInfo = null;
         this.showLoginModal();
@@ -41,7 +41,7 @@ export class HomePage {
 
   logout() {
     if (this.authInfo && (this.authInfo.email ||  this.authInfo.accessToken)) {
-      this.auth.logout();
+      this.af.auth.logout();
       return;
     }
   }
