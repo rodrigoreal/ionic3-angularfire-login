@@ -1,5 +1,5 @@
 import {NavController, Modal} from "ionic-angular";
-import {AngularFire, FirebaseAuth, FirebaseListObservable} from "angularfire2";
+import {AngularFire, FirebaseListObservable} from "angularfire2";
 import {Observable} from "rxjs/Observable";
 import {OnInit, Inject, Component} from "@angular/core";
 import {AuthPage} from "../auth/home/home";
@@ -13,25 +13,15 @@ export class HomePage {
   authInfo: any;
 
   constructor(private navCtrl: NavController,
-    private af: AngularFire,
-    private auth: FirebaseAuth) {
+    private af: AngularFire) {
   }
 
   ngOnInit() {
     this.bookItems = this.af.database.list("/monsters");
 
-    this.auth.subscribe(data => {
+    this.af.auth.subscribe(data => {
       if (data) {
-        // if (data.facebook) {
-        //   this.authInfo = data.facebook;
-        //   this.authInfo.displayName = data.facebook.displayName;
-        // } else if (data.google) {
-        //   this.authInfo = data.google;
-        //   this.authInfo.displayName = data.google.displayName;
-        // } else {
-        //   this.authInfo = data.password;
-        //   this.authInfo.displayName = data.password.email;
-        // }
+        this.authInfo = data;
       } else {
         this.authInfo = null;
         this.showLoginModal();
@@ -40,7 +30,7 @@ export class HomePage {
   }
 
   logout() {
-    if (this.authInfo && (this.authInfo.email ||  this.authInfo.accessToken)) {
+    if (this.authInfo) {
       this.af.auth.logout();
       return;
     }

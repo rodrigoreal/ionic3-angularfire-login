@@ -20,7 +20,7 @@ export class ForgotPasswordPage {
 
   resetPassword(credentials) {
     let loading = Loading.create({
-      content: "Por favor aguarde..."
+      content: "Please wait.."
     });
     this.navCtrl.present(loading);
 

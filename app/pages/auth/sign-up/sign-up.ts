@@ -1,7 +1,8 @@
 import {NavController, Loading} from "ionic-angular";
-import {FirebaseAuth, FirebaseRef, AuthProviders, AuthMethods} from "angularfire2";
+import {AngularFire, AuthProviders, AuthMethods} from "angularfire2";
 import {OnInit, Inject, Component} from "@angular/core";
 import {LoginEmailPage} from "../login-email/login-email";
+import {HomePage} from "../../home/home";
 
 @Component({
   templateUrl: "build/pages/auth/sign-up/sign-up.html"
@@ -10,7 +11,7 @@ import {LoginEmailPage} from "../login-email/login-email";
 export class SignUpPage {
   error: any;
 
-  constructor(private auth: FirebaseAuth,
+  constructor(private af: AngularFire,
     private navCtrl: NavController) {
   }
 
@@ -24,11 +25,11 @@ export class SignUpPage {
 
   registerUser(credentials) {
     let loading = Loading.create({
-      content: "Por favor aguarde..."
+      content: "Please wait..."
     });
     this.navCtrl.present(loading);
 
-    this.auth.createUser(credentials).then((authData: FirebaseAuthData) => {
+    this.af.auth.createUser(credentials).then((authData: FirebaseAuthData) => {
       console.log(authData);
       credentials.created = true;
       return this.login(credentials, loading);
@@ -37,13 +38,13 @@ export class SignUpPage {
       if (error) {
         switch (error.code) {
           case "INVALID_EMAIL":
-            this.error = "E-mail inválido.";
+            this.error = "Invalid email.";
             break;
           case "EMAIL_TAKEN":
-            this.error = "Este e-mail já está sendo utilizado.";
+            this.error = "The specified email address is already in use.";
             break;
           case "NETWORK_ERROR":
-            this.error = "Aconteceu algum erro ao tentar se conectar ao servidor, tente novamente mais tarde.";
+            this.error = "An error occurred while attempting to contact the authentication server.";
             break;
           default:
             this.error = error;
@@ -53,13 +54,13 @@ export class SignUpPage {
   }
 
   login(credentials, loading) {
-    this.auth.login(credentials, {
+    this.af.auth.login(credentials, {
       provider: AuthProviders.Password,
       method: AuthMethods.Password
     }).then((authData) => {
       console.log(authData);
       loading.dismiss();
-      this.navCtrl.popToRoot();
+      this.navCtrl.setRoot(HomePage);
     }).catch((error) => {
       loading.dismiss();
       this.error = error;

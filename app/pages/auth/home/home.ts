@@ -1,5 +1,5 @@
 import {NavController} from "ionic-angular";
-import {FirebaseAuth, FirebaseRef, AuthProviders, AuthMethods } from "angularfire2";
+import {AngularFire, AuthProviders, AuthMethods } from "angularfire2";
 import {OnInit, Inject, Component} from "@angular/core";
 import {LoginEmailPage} from "../login-email/login-email";
 import {SignUpPage} from "../sign-up/sign-up";
@@ -12,7 +12,7 @@ import {TermsOfServicePage} from "../../terms-of-service/terms-of-service";
 export class AuthPage {
   error: any;
 
-  constructor(private auth: FirebaseAuth,
+  constructor(private af: AngularFire,
     private navCtrl: NavController) {
   }
 
@@ -33,7 +33,7 @@ export class AuthPage {
   }
 
   registerUserWithFacebook() {
-    this.auth.login({
+    this.af.auth.login({
       provider: AuthProviders.Facebook,
       method: AuthMethods.Popup
     }).then((value) => {
@@ -44,7 +44,7 @@ export class AuthPage {
   }
 
   registerUserWithGoogle() {
-    this.auth.login({
+    this.af.auth.login({
       provider: AuthProviders.Google,
       method: AuthMethods.Popup
     }).then((value) => {

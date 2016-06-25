@@ -1,8 +1,9 @@
 import {NavController, Loading} from "ionic-angular";
-import {FirebaseAuth, AuthProviders, AuthMethods } from "angularfire2";
+import {AngularFire, AuthProviders, AuthMethods} from "angularfire2";
 import {OnInit, Inject, Component} from "@angular/core";
 import {ForgotPasswordPage} from "../forgot-password/forgot-password";
 import {SignUpPage} from "../sign-up/sign-up";
+import {HomePage} from "../../home/home";
 
 @Component({
   templateUrl: "build/pages/auth/login-email/login-email.html"
@@ -11,7 +12,7 @@ import {SignUpPage} from "../sign-up/sign-up";
 export class LoginEmailPage {
   error: any;
 
-  constructor(private auth: FirebaseAuth,
+  constructor(private af: AngularFire,
     private navCtrl: NavController) {
   }
 
@@ -29,32 +30,32 @@ export class LoginEmailPage {
 
   login(credentials) {
     let loading = Loading.create({
-      content: "Por favor aguarde..."
+      content: "Please wait..."
     });
     this.navCtrl.present(loading);
 
-    this.auth.login(credentials, {
+    this.af.auth.login(credentials, {
       provider: AuthProviders.Password,
       method: AuthMethods.Password
     }).then((authData) => {
       console.log(authData);
       loading.dismiss();
-      this.navCtrl.popToRoot();
+      this.navCtrl.setRoot(HomePage);
     }).catch((error) => {
       loading.dismiss();
       if (error) {
         switch (error.code) {
           case "INVALID_EMAIL":
-            this.error = "E-mail inválido.";
+            this.error = "Invalid email.";
             break;
           case "INVALID_USER":
-            this.error = "E-mail ou senha incorretos.";
+            this.error = "The specified user account email/password are incorrect.";
             break;
           case "INVALID_PASSWORD":
-            this.error = "E-mail ou senha incorretos.";
+            this.error = "The specified user account email/password are incorrect.";
             break;
           case "NETWORK_ERROR":
-            this.error = "Aconteceu algum erro ao tentar se conectar ao servidor, tente novamente mais tarde.";
+            this.error = "An error occurred while attempting to contact the authentication server.";
             break;
           default:
             this.error = error;
