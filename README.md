@@ -7,6 +7,10 @@ npm install
 ```
 
 --
+You will get a lot of TypeScript errors ```Cannot find module 'firebase'``` during the compilation of the app.
+<br>I'm working to fix that, but the app is working perfect.
+
+--
 
 ###Use your own Firebase Account
 You will need to change the following code in `app.ts`
@@ -18,8 +22,8 @@ defaultFirebase({
     storageBucket: "<your-storage-bucket>",
   })
 ```
---
 
+--
 ###This Application was tested with the following configuration
 ```
 Your system information:
