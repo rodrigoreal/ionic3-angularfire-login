@@ -1,9 +1,9 @@
 import {NavController, Loading} from "ionic-angular";
-import {AngularFire, AuthProviders, AuthMethods} from "angularfire2";
-import {OnInit, Inject, Component} from "@angular/core";
+import {OnInit, Component} from "@angular/core";
 import {ForgotPasswordPage} from "../forgot-password/forgot-password";
 import {SignUpPage} from "../sign-up/sign-up";
 import {HomePage} from "../../home/home";
+import {AuthProvider} from "../../../providers/auth/auth";
 
 @Component({
   templateUrl: "build/pages/auth/login-email/login-email.html"
@@ -12,9 +12,7 @@ import {HomePage} from "../../home/home";
 export class LoginEmailPage {
   error: any;
 
-  constructor(private af: AngularFire,
-    private navCtrl: NavController) {
-  }
+  constructor(private navCtrl: NavController, private auth: AuthProvider) {}
 
   ngOnInit() {
 
@@ -34,33 +32,16 @@ export class LoginEmailPage {
     });
     this.navCtrl.present(loading);
 
-    this.af.auth.login(credentials, {
-      provider: AuthProviders.Password,
-      method: AuthMethods.Password
-    }).then((authData) => {
-      console.log(authData);
-      loading.dismiss();
-      this.navCtrl.setRoot(HomePage);
-    }).catch((error) => {
-      loading.dismiss();
-      if (error) {
-        switch (error.code) {
-          case "INVALID_EMAIL":
-            this.error = "Invalid email.";
-            break;
-          case "INVALID_USER":
-            this.error = "The specified user account email/password are incorrect.";
-            break;
-          case "INVALID_PASSWORD":
-            this.error = "The specified user account email/password are incorrect.";
-            break;
-          case "NETWORK_ERROR":
-            this.error = "An error occurred while attempting to contact the authentication server.";
-            break;
-          default:
-            this.error = error;
-        }
-      }
+    this.auth.loginWithEmail(credentials).subscribe(data => {
+      setTimeout(() => {
+        loading.dismiss();
+        this.navCtrl.setRoot(HomePage);
+      }, 1000);
+    }, err => {
+      setTimeout(() => {
+        loading.dismiss();
+        this.error = err;
+      }, 1000);
     });
   }
 }

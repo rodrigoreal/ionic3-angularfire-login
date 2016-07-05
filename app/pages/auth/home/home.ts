@@ -1,9 +1,9 @@
 import {NavController} from "ionic-angular";
-import {AngularFire, AuthProviders, AuthMethods } from "angularfire2";
-import {OnInit, Inject, Component} from "@angular/core";
+import {OnInit, Component} from "@angular/core";
 import {LoginEmailPage} from "../login-email/login-email";
 import {SignUpPage} from "../sign-up/sign-up";
 import {TermsOfServicePage} from "../../terms-of-service/terms-of-service";
+import {AuthProvider} from "../../../providers/auth/auth";
 
 @Component({
   templateUrl: "build/pages/auth/home/home.html"
@@ -12,9 +12,7 @@ import {TermsOfServicePage} from "../../terms-of-service/terms-of-service";
 export class AuthPage {
   error: any;
 
-  constructor(private af: AngularFire,
-    private navCtrl: NavController) {
-  }
+  constructor(private navCtrl: NavController, private auth: AuthProvider) {}
 
   ngOnInit() {
 
@@ -33,24 +31,18 @@ export class AuthPage {
   }
 
   registerUserWithFacebook() {
-    this.af.auth.login({
-      provider: AuthProviders.Facebook,
-      method: AuthMethods.Popup
-    }).then((value) => {
+    this.auth.loginWithFacebook().subscribe(data => {
       this.navCtrl.popToRoot();
-    }).catch((error) => {
-      this.error = error;
-    });
+    }, err => {
+      this.error = err;
+    })
   }
 
   registerUserWithGoogle() {
-    this.af.auth.login({
-      provider: AuthProviders.Google,
-      method: AuthMethods.Popup
-    }).then((value) => {
+    this.auth.loginWithGoogle().subscribe(data => {
       this.navCtrl.popToRoot();
-    }).catch((error) => {
-      this.error = error;
-    });
+    }, err => {
+      this.error = err;
+    })
   }
 }

@@ -2,8 +2,9 @@ import {Nav, Platform, ionicBootstrap} from "ionic-angular";
 import {StatusBar} from "ionic-native";
 import {HomePage} from "./pages/home/home";
 import {Component, ViewChild} from "@angular/core";
-
 import {FIREBASE_PROVIDERS, defaultFirebase} from "angularfire2";
+import {AuthProvider} from "./providers/auth/auth";
+import {AuthPage} from "./pages/auth/home/home";
 
 @Component({
   templateUrl: "build/app.html",
@@ -11,24 +12,30 @@ import {FIREBASE_PROVIDERS, defaultFirebase} from "angularfire2";
 
 class MyApp {
   @ViewChild(Nav) nav: Nav;
-
-  rootPage: any = HomePage;
+  rootPage: any;
   pages: Array<{title: string, component: any}>;
+  isAppInitialized: boolean;
+  constructor(private platform: Platform, protected auth: AuthProvider) {
+    this.pages = [{ title: "Home", component: HomePage }];
+    this.isAppInitialized = false;
+  }
 
-  constructor(private platform: Platform) {
+  ngOnInit() {
     this.initializeApp();
-
-    this.pages = [
-      { title: "Home", component: HomePage }
-    ];
-
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
+
+      this.auth.getUserData().subscribe(data => {
+        if (!this.isAppInitialized) {
+          this.nav.setRoot(HomePage);
+          this.isAppInitialized = true;
+        }
+      }, err => {
+        this.nav.setRoot(AuthPage);
+      });
     });
   }
 
@@ -37,7 +44,8 @@ class MyApp {
   }
 }
 
-ionicBootstrap(MyApp, [FIREBASE_PROVIDERS, defaultFirebase({
+ionicBootstrap(MyApp, [AuthProvider, FIREBASE_PROVIDERS,
+  defaultFirebase({
     apiKey: "AIzaSyDcbsUEReGm_dlijVXC1sMCcqKpCsXt0nQ",
     authDomain: "ionic2-angularfire-login-14ea3.firebaseapp.com",
     databaseURL: "https://ionic2-angularfire-login-14ea3.firebaseio.com",
