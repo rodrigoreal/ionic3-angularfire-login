@@ -65,12 +65,11 @@ export class AuthProvider {
         provider: AuthProviders.Facebook,
         method: AuthMethods.Popup
       }).then((authData) => {
+        console.info("authData", authData);
         observer.next(authData);
       }).catch((error) => {
-        observer.next({
-          error: true,
-          errorMessage: error
-        });
+        console.info("error", error);
+        observer.error(error);
       });
     });
   }
@@ -83,10 +82,7 @@ export class AuthProvider {
       }).then((authData) => {
         observer.next(authData);
       }).catch((error) => {
-        observer.next({
-          error: true,
-          errorMessage: error
-        });
+        observer.error(error);
       });
     });
   }
