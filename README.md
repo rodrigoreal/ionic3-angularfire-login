@@ -1,16 +1,9 @@
 # Integrating Firebase 3 with AngularFire2 into Angular2 & Ionic2
----
 
-###Update npm modules
+##Install
 ```
-npm install 
+npm install
 ```
-
---
-You will get a lot of TypeScript errors ```Cannot find module 'firebase'``` during the compilation of the app.
-<br>I'm working to fix that, but the app is working perfect.
-
---
 
 ###Use your own Firebase Account
 You will need to change the following code in `app.ts`
@@ -23,8 +16,11 @@ defaultFirebase({
   })
 ```
 
---
-###This Application was tested with the following configuration
+##Integrate this project in your own project
+Follow the instructions bellow that will teach you everything you need to know.
+####[Installation & Setup](docs/install-and-setup-in-your-own-project.md)
+
+##This Application was tested with the following configuration
 ```
 Your system information:
 
