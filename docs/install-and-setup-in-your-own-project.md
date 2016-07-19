@@ -87,7 +87,9 @@ initializeApp() {
   });
 }
 ```
-
 Change the `HomePage` to your own home page.
+
+####4 Copy some files
+You need to copy the `app/pages/auth`, `app/pages/terms-of-service` and `app/providers/auth` folders to your project.
 
 > And that is it, the user will always be redirected to the login page if he is not logged, otherwise he will be redirected to home page.
