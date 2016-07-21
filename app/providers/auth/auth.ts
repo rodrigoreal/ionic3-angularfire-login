@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {AngularFire, AuthProviders, AuthMethods} from "angularfire2";
 import {Observable} from "rxjs/Observable";
+import {Facebook} from 'ionic-native';
 
 @Injectable()
 export class AuthProvider {
@@ -47,16 +48,21 @@ export class AuthProvider {
 
   loginWithFacebook() {
     return Observable.create(observer => {
-      this.af.auth.login({
-        provider: AuthProviders.Facebook,
-        method: AuthMethods.Popup
-      }).then((authData) => {
-        console.info("authData", authData);
-        observer.next(authData);
-      }).catch((error) => {
-        console.info("error", error);
-        observer.error(error);
-      });
+      let fbLoginSuccess = function (userData) {
+        console.log("UserInfo: ", userData);
+        facebookConnectPlugin.getAccessToken(function(token) {
+          let provider = firebase.auth.FacebookAuthProvider.credential(token);
+          firebase.auth().signInWithCredential(provider).then((success) => {
+            observer.next(success);
+          });
+        });
+      };
+
+      facebookConnectPlugin.login(["public_profile"], fbLoginSuccess,
+        function (error) {
+          console.error(error);
+        }
+      );
     });
   }
 
