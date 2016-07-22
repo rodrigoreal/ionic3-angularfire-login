@@ -19,6 +19,7 @@ defaultFirebase({
 ##Integrate this project in your own project
 Follow the instructions bellow that will teach you everything you need to know.
 ####[Installation & Setup](docs/install-and-setup-in-your-own-project.md)
+####[Facebook Authentication](docs/facebook-authentication.md)
 
 ##This Application was tested with the following configuration
 ```
