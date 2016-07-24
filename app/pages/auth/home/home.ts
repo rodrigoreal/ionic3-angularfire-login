@@ -39,8 +39,24 @@ export class AuthPage {
     });
   }
 
-  registerUserWithGoogle() {
-    this.auth.loginWithGoogle().subscribe(data => {
+  registerUserWithGoogleUsingPopupFirebase() {
+    this.auth.loginWithGoogleUsingPopupFirebase().subscribe(data => {
+      this.navCtrl.setRoot(HomePage);
+    }, err => {
+      this.error = err;
+    });
+  }
+
+  registerUserWithGoogleUsingPlugin() {
+    this.auth.loginWithGoogleUsingPlugin().subscribe(data => {
+      this.navCtrl.setRoot(HomePage);
+    }, err => {
+      this.error = err;
+    });
+  }
+
+  registerUserWithGoogleUsingWeb() {
+    this.auth.loginWithGoogleUsingWeb().subscribe(data => {
       this.navCtrl.setRoot(HomePage);
     }, err => {
       this.error = err;

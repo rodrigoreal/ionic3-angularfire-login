@@ -9,9 +9,17 @@
     <ion-icon name="logo-facebook"></ion-icon>
     Log In with Facebook
   </button>
-  <button block class="google-btn" (click)="registerUserWithGoogle()">
+  <button block class="google-btn" (click)="registerUserWithGoogleUsingPopupFirebase()">
     <ion-icon name="logo-google" ></ion-icon>
-    Log In with Google
+    Log In with Google (popup - firebase)
+  </button>
+  <button block class="google-btn" (click)="registerUserWithGoogleUsingPlugin()">
+    <ion-icon name="logo-google" ></ion-icon>
+    Log In with Google (plugin)
+  </button>
+  <button block class="google-btn" (click)="registerUserWithGoogleUsingWeb()">
+    <ion-icon name="logo-google" ></ion-icon>
+    Log In with Google (popup - web)
   </button>
 
   <button light outline class="sign-up-btn" (click)="openSignUpPage()">Sign Up</button>
