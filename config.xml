@@ -36,4 +36,8 @@
         <variable name="APP_ID" value="164514030629246" />
         <variable name="APP_NAME" value="ioni­c­2­-­a­n­g­u­l­a­r­f­i­r­e­-­l­ogin" />
     </plugin>
+    <plugin name="cordova-plugin-googleplus" spec="~4.0.8">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps._google_client_app_id_" />
+    </plugin>
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.4.0" />
 </widget>
