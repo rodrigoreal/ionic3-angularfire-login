@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Sign Up with Email
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="sign-up">
+  <div padding class="log-in-txt" (click)="openLoginPage()">
+    Log In
+  </div>
+
+  <form (ngSubmit)="register()" #signUpForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" placeholder="E-mail" [(ngModel)]="form.email" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="Senha" [(ngModel)]="form.password" name="password"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button block [disabled]="!signUpForm.form.valid"
+      class="sign-up-btn">Sign Up
+    </button>
+
+    <div padding class="error" *ngIf="error">
+      <p>{{error}}</p>
+    </div>
+  </form>
+</ion-content>

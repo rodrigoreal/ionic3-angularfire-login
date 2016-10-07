@@ -1,0 +1,32 @@
+.sign-up {
+  background-image: url("../../assets/img/auth-background.jpg");
+  background-size: 100%;
+  background-position-y: 50%;
+
+  .log-in-txt {
+    width: 100%;
+    text-align: right;
+    color: white;
+  }
+
+  form {
+    width: 95%;
+    margin: auto;
+
+    .sign-up-btn {
+      background-color: rgb(74, 165, 217);
+      margin: auto;
+    }
+  }
+
+  .error {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(217, 74, 87);
+    p {
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
