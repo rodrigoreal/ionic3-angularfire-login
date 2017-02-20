@@ -1,8 +1,6 @@
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
-import { FormsModule } from '@angular/forms';
 
 // Pages
 import { ForgotPasswordPage } from '../pages/auth/forgot-password/forgot-password';
@@ -36,9 +34,8 @@ export const firebaseConfig = {
     TermsOfServicePage
   ],
   imports: [
-    AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp),
-    FormsModule
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,9 +47,6 @@ export const firebaseConfig = {
     HomePage,
     TermsOfServicePage
   ],
-  providers: [
-    DataProvider,
-    AuthProvider
-  ]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DataProvider, AuthProvider]
 })
 export class AppModule {}

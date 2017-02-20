@@ -9,13 +9,14 @@ import { DataProvider } from '../providers/data';
 import { AuthProvider } from '../providers/auth';
 
 @Component({
-  template: `<ion-nav></ion-nav>`
+  templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   isAppInitialized: boolean = false;
   user: any;
-
+  rootPage: any = AuthPage;
+  
   constructor(
     private platform: Platform,
     protected data: DataProvider,

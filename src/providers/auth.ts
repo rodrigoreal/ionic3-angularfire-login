@@ -11,7 +11,13 @@ import {DataProvider} from './data';
 @Injectable()
 export class AuthProvider {
   user: any;
-  constructor(private af: AngularFire, private data: DataProvider, private platform: Platform) {}
+  constructor(private af: AngularFire, private data: DataProvider, private platform: Platform) {
+    this.af.database.list('pushTest').push({
+      teste: 'teste'
+    }).then((data) => {
+      console.log(data);
+    });
+  }
 
   getUserData() {
     return Observable.create(observer => {

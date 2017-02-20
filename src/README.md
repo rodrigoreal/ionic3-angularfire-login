@@ -1,4 +1,4 @@
-# Integrating Firebase 3 with AngularFire2 into Ionic2 RC0
+# Integrating Firebase 3 with AngularFire2 into Ionic2
 
 ## Install
 ```
@@ -19,22 +19,18 @@ export const firebaseConfig = {
 ### Use your own Facebook Account
 #### [Facebook Authentication](docs/facebook-authentication.md)
 
-## Integrate this project in your own project
-
-#### [Installation & Setup](docs/install-and-setup-in-your-own-project.md)
-
 ## This Application was tested with the following configuration
 ```
 Your system information:
 
-Gulp version:  CLI version 3.9.1
-Gulp local:
-Ionic Framework Version: 2.0.0-rc.0
-Ionic CLI Version: 2.1.0
-Ionic App Lib Version: 2.1.0-beta.1
+Cordova CLI: 6.4.0
+Ionic Framework Version: 2.0.1
+Ionic CLI Version: 2.2.1
+Ionic App Lib Version: 2.2.0
+Ionic App Scripts Version: 1.1.0
 ios-deploy version: 1.8.5
 ios-sim version: 5.0.8
-OS: Mac OS X El Capitan
-Node Version: v6.1.0
-Xcode version: Xcode 8.0 Build version 8A218a
+OS: macOS Sierra
+Node Version: v6.9.5
+Xcode version: Xcode 8.2.1 Build version 8C1002
 ```
