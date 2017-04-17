@@ -57,20 +57,20 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 ###### OS X
 
-#######1. Create a RSA keystore
+####### 1. Create a RSA keystore
 ```bash
 keytool -genkey -v -keystore ~/.android/debug.keystore -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000
 ```
-#######2. Create a keyhash for facebook
+####### 2. Create a keyhash for facebook
 ```bash
 keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
 ```
-#######3. Add the keyhash on facebook under your app dashboard
-#######4. Sign the android app with the same keystore
+####### 3. Add the keyhash on facebook under your app dashboard
+####### 4. Sign the android app with the same keystore
 ```bash
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ~/.android/debug.keystore platforms/android/build/outputs/apk/android-release-unsigned.apk  androiddebugkey
 ```
-#######5. Zip align android apk
+####### 5. Zip align android apk
 ```bash
 ~/Library/Android/sdk/build-tools/24.0.1/zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk platforms/android/build/outputs/apk/myapp.apk
 ```
