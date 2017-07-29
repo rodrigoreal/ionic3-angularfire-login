@@ -1,6 +1,15 @@
 // Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/v2/theming/
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
 $font-path: "../assets/fonts";
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
 
 @import "ionic.globals";
 
@@ -10,10 +19,14 @@ $font-path: "../assets/fonts";
 // To customize the look and feel of this app, you can override
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
-// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-
-
+$background: #f2f2f2;
+$gray: #666666;
+$star: #FEBA16;
+$green: #32ef3f;
+$blue: #387ef5;
+$orange: #F07626;
 
 // Named Color Variables
 // --------------------------------------------------
@@ -24,13 +37,12 @@ $font-path: "../assets/fonts";
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #387ef5,
+  primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222
 );
-
 
 // App iOS Variables
 // --------------------------------------------------
@@ -66,7 +78,7 @@ $colors: (
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
-// http://ionicframework.com/docs/v2/ionicons/
+// http://ionicframework.com/docs/ionicons/
 
 @import "ionic.ionicons";
 

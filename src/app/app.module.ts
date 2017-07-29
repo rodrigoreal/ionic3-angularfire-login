@@ -1,52 +1,58 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-// Pages
-import { ForgotPasswordPage } from '../pages/auth/forgot-password/forgot-password';
-import { AuthPage } from '../pages/auth/home/home';
-import { LoginEmailPage } from '../pages/auth/login-email/login-email';
-import { SignUpPage } from '../pages/auth/sign-up/sign-up';
-import { HomePage } from '../pages/home/home';
-import { TermsOfServicePage } from '../pages/terms-of-service/terms-of-service';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { Facebook } from '@ionic-native/facebook';
+
+import { IonicStorageModule } from '@ionic/storage';
+import { HttpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-// Providers
-import { DataProvider } from '../providers/data';
-import { AuthProvider } from '../providers/auth';
+import { AuthProvider } from '../providers/auth/auth';
+import { DataProvider } from '../providers/data/data';
+import { FunctionsProvider } from '../providers/functions/functions';
 
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyDcbsUEReGm_dlijVXC1sMCcqKpCsXt0nQ',
   authDomain: 'ionic2-angularfire-login-14ea3.firebaseapp.com',
   databaseURL: 'https://ionic2-angularfire-login-14ea3.firebaseio.com',
+  projectId: 'ionic2-angularfire-login-14ea3',
   storageBucket: 'ionic2-angularfire-login-14ea3.appspot.com',
+  messagingSenderId: '438127821589'
 };
 
 @NgModule({
   declarations: [
     MyApp,
-    ForgotPasswordPage,
-    AuthPage,
-    LoginEmailPage,
-    SignUpPage,
-    HomePage,
-    TermsOfServicePage
   ],
   imports: [
+    BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot(),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ForgotPasswordPage,
-    AuthPage,
-    LoginEmailPage,
-    SignUpPage,
-    HomePage,
-    TermsOfServicePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DataProvider, AuthProvider]
+  providers: [
+    StatusBar,
+    SplashScreen,
+    Facebook,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    AuthProvider,
+    DataProvider,
+    FunctionsProvider,
+    FunctionsProvider
+  ]
 })
 export class AppModule {}

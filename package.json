@@ -1,56 +1,48 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
+  "name": "ionic3-angularfire-login",
+  "version": "0.0.1",
+  "author": "Rodrigo Real",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
-    "@angular/common": "2.2.1",
-    "@angular/compiler": "2.2.1",
-    "@angular/compiler-cli": "2.2.1",
-    "@angular/core": "2.2.1",
-    "@angular/forms": "2.2.1",
-    "@angular/http": "2.2.1",
-    "@angular/platform-browser": "2.2.1",
-    "@angular/platform-browser-dynamic": "2.2.1",
-    "@angular/platform-server": "2.2.1",
-    "@ionic/storage": "1.1.7",
-    "angularfire2": "^2.0.0-beta.8",
-    "firebase": "^3.6.9",
-    "ionic-angular": "2.0.1",
-    "ionic-native": "2.4.1",
+    "@angular/common": "4.1.3",
+    "@angular/compiler": "4.1.3",
+    "@angular/compiler-cli": "4.1.3",
+    "@angular/core": "4.1.3",
+    "@angular/forms": "4.1.3",
+    "@angular/http": "4.1.3",
+    "@angular/platform-browser": "4.1.3",
+    "@angular/platform-browser-dynamic": "4.1.3",
+    "@ionic-native/core": "3.12.1",
+    "@ionic-native/facebook": "^4.1.0",
+    "@ionic-native/splash-screen": "3.12.1",
+    "@ionic-native/status-bar": "3.12.1",
+    "@ionic/storage": "2.0.1",
+    "angularfire2": "^4.0.0-rc.1",
+    "firebase": "^4.2.0",
+    "font-awesome": "^4.7.0",
+    "ionic-angular": "3.6.0",
     "ionicons": "3.0.0",
-    "rxjs": "5.0.0-beta.12",
-    "sw-toolbox": "3.4.0",
-    "zone.js": "0.6.26"
+    "rxjs": "5.4.0",
+    "sw-toolbox": "3.6.0",
+    "tslint-config-airbnb": "^5.2.1",
+    "zone.js": "0.8.12"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.1.0",
-    "typescript": "2.0.9",
-    "cz-conventional-changelog": "^1.2.0"
+    "@ionic/app-scripts": "2.1.3",
+    "@ionic/cli-plugin-ionic-angular": "1.4.0",
+    "cz-conventional-changelog": "^2.0.0",
+    "ionic": "3.6.0",
+    "typescript": "2.3.4"
   },
-  "cordovaPlugins": [
-    "cordova-plugin-statusbar",
-    "cordova-plugin-console",
-    "cordova-plugin-device",
-    "cordova-plugin-whitelist",
-    "cordova-plugin-splashscreen",
-    "ionic-plugin-keyboard"
-  ],
-  "cordovaPlatforms": [
-    "ios",
-    {
-      "platform": "ios",
-      "version": "",
-      "locator": "ios"
-    }
-  ],
-  "description": "ionic2-angularfire-login: An Ionic project",
+  "description": "An Ionic project",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"

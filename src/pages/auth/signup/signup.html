@@ -1,0 +1,31 @@
+<ion-content padding>
+  <ion-header no-border>
+    <ion-navbar transparent>
+    </ion-navbar>
+  </ion-header>
+  <ion-icon name="person" class="user-icon"></ion-icon>
+  <div padding>
+    <form [formGroup]="form" (ngSubmit)="signUp()">
+      <ion-item>
+        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="Senha" formControlName="password"></ion-input>
+      </ion-item>
+      <button ion-button block outline color="primary" class="signup-button" 
+        type="submit" [disabled]="!form.valid"
+      >
+        Cadastrar
+      </button>
+    </form>
+    <p ion-text color="danger" *ngIf="hasError">{{errorMessage}}</p>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer">
+    <div (click)="navigatePop()">
+      <span>Já tem uma conta? <strong>Faça login</strong>.</span>
+    </div>
+  </ion-toolbar>
+</ion-footer>

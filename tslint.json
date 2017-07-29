@@ -1,9 +1,11 @@
 {
+  "extends": "tslint-config-airbnb",
   "rules": {
     "no-duplicate-variable": true,
-    "no-unused-variable": [
-      true
-    ]
+    "no-unused-variable": [ true ],
+    "no-param-reassign": false,
+    "trailing-comma": [ false ],
+    "align": [ false ]
   },
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"

@@ -1,6 +1,5 @@
 {
-  "name": "ionic2-angularfire-login",
+  "name": "pet",
   "app_id": "",
-  "v2": true,
-  "typescript": true
+  "type": "ionic-angular"
 }

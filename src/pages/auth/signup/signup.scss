@@ -1,0 +1,57 @@
+page-signup {
+  span {
+    color: $gray;
+  }
+
+  ion-content {
+    .scroll-content {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      .user-icon {
+        color: color($colors, dark) !important;
+        text-align: center;
+        display: block;
+        font-size: 10em;
+        margin-top: 50px;
+      }
+      ion-item {
+        border-radius: 3px !important;
+        padding-left: 10px !important;
+        margin-bottom: 15px !important;
+        margin-bottom: 10px;
+        color: $gray !important;
+        background-color: color($colors, light) !important;
+        font-size: 0.9em;
+        ::-webkit-input-placeholder {
+          color: $gray !important;
+        }
+        .item-inner {
+          border-bottom: 0 !important;
+          box-shadow: none !important;
+        }
+      }
+
+      .signup-button {
+        text-transform: none;
+        border-radius: 3px !important;
+        span {
+          color: color($colors, primary) !important;
+        }
+      }
+    }
+  }
+
+  ion-footer {
+    height: 47px;
+    .toolbar-background {
+      background: transparent !important;
+      background-color: transparent !important;
+    }
+    .footer {
+      text-align: center;
+      background: rgba(255, 255, 255, .06);
+      min-height: 47px;
+    }
+  }
+}

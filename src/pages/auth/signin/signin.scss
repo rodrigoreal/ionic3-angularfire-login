@@ -1,0 +1,98 @@
+page-signin {
+  span {
+    color: $gray;
+  }
+  ion-content {
+    .scroll-content {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      .title {
+        font-family: 'Angelina';
+        text-align: center;
+        width: 100%;
+        height: 20vh;
+        line-height: 20vh;
+        font-size: 5rem;
+        font-weight: 500;
+        color: #424242;
+      }
+      ion-item {
+        border-radius: 3px !important;
+        padding-left: 10px !important;
+        margin-bottom: 15px !important;
+        margin-bottom: 10px;
+        color: $gray !important;
+        background-color: color($colors, light) !important;
+        font-size: 0.9em;
+        ::-webkit-input-placeholder {
+          color: $gray !important;
+        }
+        .item-inner {
+          border-bottom: 0 !important;
+          box-shadow: none !important;
+        }
+      }
+      .signin-button {
+        text-transform: none;
+        border-radius: 3px !important;
+        span {
+          color: color($colors, primary) !important;
+        }
+      }
+      .forgot-password {
+        color: $gray;
+        font-size: 1.5rem;
+      }
+      .facebook-button {
+        text-transform: none;
+        ion-icon {
+          padding-right: 10px;
+          font-size: 2.2rem;
+        }
+      }
+      
+      // HR with text in the middle effect
+      .strike {
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        span {
+          position: relative;
+          display: inline-block;
+          font-weight: bold;
+          &:before, &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 9999px;
+            height: 1px;
+            background: $gray;
+          }
+          &:before {
+            right: 100%;
+            margin-right: 15px;
+          }
+          &:after {
+            left: 100%;
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  ion-footer {
+    height: 47px;
+    .toolbar-background {
+      background: transparent !important;
+      background-color: transparent !important;
+    }
+    .footer {
+      text-align: center;
+      background: rgba(255, 255, 255, .06);
+      min-height: 47px;
+    }
+  }
+}

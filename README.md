@@ -1,4 +1,4 @@
-# Integrating Firebase 3 with AngularFire2 into Ionic2
+# Integrating Firebase 3 with AngularFire2 into Ionic3
 
 ## Install
 ```
@@ -19,18 +19,29 @@ export const firebaseConfig = {
 ### Use your own Facebook Account
 #### [Facebook Authentication](docs/facebook-authentication.md)
 
+### Firebase Functions repository
+This project make some requests when the user is created to a firebase functions server.
+You can take a look at the repository here: https://github.com/rodrigoreal/ionic3-angularfire-login-functions
+
 ## This Application was tested with the following configuration
 ```
-Your system information:
+cli packages:
 
-Cordova CLI: 6.4.0
-Ionic Framework Version: 2.0.1
-Ionic CLI Version: 2.2.1
-Ionic App Lib Version: 2.2.0
-Ionic App Scripts Version: 1.1.0
-ios-deploy version: 1.8.5
-ios-sim version: 5.0.8
-OS: macOS Sierra
-Node Version: v6.9.5
-Xcode version: Xcode 8.2.1 Build version 8C1002
+    @ionic/cli-plugin-ionic-angular : 1.4.0 
+    @ionic/cli-utils                : 1.6.0 
+    ionic (Ionic CLI)               : 3.6.0 
+
+local packages:
+
+    @ionic/app-scripts : 2.1.3
+    Ionic Framework    : ionic-angular 3.6.0
+
+System:
+
+    Node       : v6.9.5
+    OS         : macOS Sierra
+    Xcode      : Xcode 8.3.3 Build version 8E3004b
+    ios-deploy : 1.9.1
+    ios-sim    : 5.0.8
+    npm        : 3.10.10
 ```
